@@ -69,7 +69,7 @@ describe('Problem 0 - greeting() function', function () {
    * way.
    */
   test('greeting should return the correct string output', function () {
-    let result = greeting('WEB222 Student');
+    let result = greeting('WEB222 Student!');
     expect(result).toBe('Hello WEB222 Student!');
   });
 
