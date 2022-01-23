@@ -41,28 +41,29 @@ const { greeting } = require('./solutions');
  * We also define a test() {...} function to contain our tests.  When the Problem 0
  * tests are run, this function will be called.
  */
-describe('Problem 0 - greeting() function', function () {
-  /**
-   * Now we come to the individual tests.  We try to keep our tests
-   * small, and only test 1 thing at a time.  This makes it easier to implement
-   * our code and slowly make progress.  You can write a bit of the functionality,
-   * and get some of the tests to pass.  As you add more, and deal with new cases,
-   * more of the tests should pass.  You also want to avoid having passing tests
-   * suddenly start failing--meaning you've introduced a bug (also known as a
-   * regression).
-   *
-   * Our first test makes sure that the variable named `greeting` is really
-   * a function.  We're using Jest's expect() function, which let's us
-   * compare an actual value (something returned by running our code) to an
-   * expected value (something we define in advance in our test).  You don't need
-   * to spend too much time on this, but if you're interested, you can read more
-   * about expect() at https://jestjs.io/docs/en/expect.
-   */
-  test('greeting should be a function', function () {
-    // This is like saying: if(typeof greeting === 'function')
-    expect(typeof greeting).toBe('function');
-  });
+describe('Problem 0 - greeting() function', function() {
+    /**
+     * Now we come to the individual tests.  We try to keep our tests
+     * small, and only test 1 thing at a time.  This makes it easier to implement
+     * our code and slowly make progress.  You can write a bit of the functionality,
+     * and get some of the tests to pass.  As you add more, and deal with new cases,
+     * more of the tests should pass.  You also want to avoid having passing tests
+     * suddenly start failing--meaning you've introduced a bug (also known as a
+     * regression).
+     *
+     * Our first test makes sure that the variable named `greeting` is really
+     * a function.  We're using Jest's expect() function, which let's us
+     * compare an actual value (something returned by running our code) to an
+     * expected value (something we define in advance in our test).  You don't need
+     * to spend too much time on this, but if you're interested, you can read more
+     * about expect() at https://jestjs.io/docs/en/expect.
+     */
+    test('greeting should be a function', function() {
+        // This is like saying: if(typeof greeting === 'function')
+        expect(typeof greeting).toBe('function');
+    });
 
+<<<<<<< HEAD
   /**
    * Our final test for greeting() checks to make sure that if you pass in
    * a name (i.e., a string), that it returns a new string formatted in the right
@@ -72,9 +73,20 @@ describe('Problem 0 - greeting() function', function () {
     let result = greeting('WEB222 Student!');
     expect(result).toBe('Hello WEB222 Student!');
   });
+=======
+    /**
+     * Our final test for greeting() checks to make sure that if you pass in
+     * a name (i.e., a string), that it returns a new string formatted in the right
+     * way.
+     */
+    test('greeting should return the correct string output', function() {
+        let result = greeting('WEB222 Student!');
+        expect(result).toBe('Hello WEB222 Student!');
+    });
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
 
-  /**
-   * OK, now you're ready to go back to src/solutions.js and continue solving
-   * Problem 1.
-   */
+    /**
+     * OK, now you're ready to go back to src/solutions.js and continue solving
+     * Problem 1.
+     */
 });
