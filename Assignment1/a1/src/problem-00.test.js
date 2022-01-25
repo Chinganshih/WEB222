@@ -72,6 +72,18 @@ describe('Problem 0 - greeting() function', function() {
         let result = greeting('WEB222 Student!');
         expect(result).toBe('Hello WEB222 Student!');
     });
+
+    /**
+     * Our final test for greeting() checks to make sure that if you pass in
+     * a name (i.e., a string), that it returns a new string formatted in the right
+     * way.
+     */
+    // eslint-disable-next-line jest/no-identical-title
+    test('greeting should return the correct string output', function() {
+        let result = greeting('WEB222 Student!');
+        expect(result).toBe('Hello WEB222 Student!');
+    });
+
     /**
      * Our final test for greeting() checks to make sure that if you pass in
      * a name (i.e., a string), that it returns a new string formatted in the right

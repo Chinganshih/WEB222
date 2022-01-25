@@ -133,6 +133,19 @@ function greeting(name) {
  ******************************************************************************/
 
 function snake(value) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  // Replace this comment with your code...
+  value = value
+    .trimStart()
+    .trimEnd()
+    .toLowerCase()
+    .replace(/\.+|\t+/g, ' ')
+    .replace(/\s+/g, '_');
+  return value;
+=======
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
     // Replace this comment with your code...
     value = value
         .trimStart()
@@ -141,6 +154,10 @@ function snake(value) {
         .replace(/\.+|\t+/g, ' ')
         .replace(/\s+/g, '_');
     return value;
+<<<<<<< HEAD
+=======
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
 }
 
 /*******************************************************************************
@@ -201,6 +218,23 @@ function snake(value) {
  ******************************************************************************/
 
 function createVideo(src, width, controls) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  // Replace this comment with your code...
+  width = Number(width);
+  src = src.trimStart().trimEnd();
+  let controlStr = controls ? ' controls' : '';
+
+  // eslint-disable-next-line no-empty
+  if (width < 0 || !Number.isInteger(width)) {
+    width = '';
+  } else width = ` width="${width}"`;
+
+  let result = `<video src="${src}"${width}${controlStr}></video>`;
+  return result;
+=======
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
     // Replace this comment with your code...
     width = Number(width);
     src = src.trimStart().trimEnd();
@@ -213,6 +247,10 @@ function createVideo(src, width, controls) {
 
     let result = `<video src="${src}"${width}${controlStr}></video>`;
     return result;
+<<<<<<< HEAD
+=======
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
 }
 
 /*******************************************************************************
@@ -261,6 +299,29 @@ function createVideo(src, width, controls) {
  ******************************************************************************/
 
 function parseDateString(value) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  // Replace this comment with your code...
+  const result = new Date();
+  const error = 'invalid date string, expected a `YYYY-DD-MM` formatted string';
+
+  if (!value || value === null || value === '') {
+    throw error;
+  } else {
+    dateArr = value.split('-');
+  }
+
+  // eslint-disable-next-line no-undef
+  if (dateArr[0].length < 4 || dateArr[1].length < 2 || dateArr[2].length < 2) {
+    throw error;
+  } else {
+    result.setFullYear(dateArr[0], dateArr[1] - 1, dateArr[2]);
+  }
+
+  return result;
+=======
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
     // Replace this comment with your code...
     const result = new Date();
     const error = 'invalid date string, expected a `YYYY-DD-MM` formatted string';
@@ -279,6 +340,10 @@ function parseDateString(value) {
     }
 
     return result;
+<<<<<<< HEAD
+=======
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
 }
 
 /*******************************************************************************
@@ -313,6 +378,23 @@ function parseDateString(value) {
  ******************************************************************************/
 
 function toDateString(value) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  // Replace this comment with your code...
+  let result = new Date(value);
+  let offset = result.getTimezoneOffset() * 60000;
+
+  try {
+    // eslint-disable-next-line no-unused-vars
+    result = new Date(result - offset).toISOString().replace(/T.*/, '');
+  } catch (error) {
+    throw 'error';
+  }
+
+  return result;
+=======
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
     // Replace this comment with your code...
     let result = new Date(value);
     let offset = result.getTimezoneOffset() * 60000;
@@ -325,6 +407,10 @@ function toDateString(value) {
     }
 
     return result;
+<<<<<<< HEAD
+=======
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
 }
 
 /*******************************************************************************
@@ -354,6 +440,33 @@ function toDateString(value) {
  ******************************************************************************/
 
 function normalizeCoord(value) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  // Replace this comment with your code...
+  let coord = '';
+
+  if (value[0] === '[') {
+    value = value
+      .replace(/\s|[[\]]/g, '')
+      .split(',')
+      .reverse();
+  } else {
+    value = value.split(',');
+  }
+
+  let lat = value[0];
+  let lng = value[1];
+
+  if (lat > 90 || lat < -90 || lng < -180 || lng > 180) {
+    throw 'error';
+  } else {
+    coord = `(${lat}, ${lng})`;
+  }
+
+  return coord;
+=======
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
     // Replace this comment with your code...
     let coord = '';
 
@@ -376,6 +489,10 @@ function normalizeCoord(value) {
     }
 
     return coord;
+<<<<<<< HEAD
+=======
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
 }
 
 /*******************************************************************************
@@ -406,6 +523,24 @@ function normalizeCoord(value) {
  ******************************************************************************/
 
 function formatCoords(...values) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  // Replace this comment with your code...
+  let result = '';
+
+  for (let i = 0; i < values.length; i++) {
+    try {
+      result += normalizeCoord(values[i]);
+      i < values.length - 1 ? (result += ', ') : 0;
+    } catch (error) {
+      result += '';
+    }
+  }
+
+  return `(${result})`;
+=======
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
     // Replace this comment with your code...
     let result = '';
 
@@ -419,6 +554,10 @@ function formatCoords(...values) {
     }
 
     return `(${result})`;
+<<<<<<< HEAD
+=======
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
 }
 
 /*******************************************************************************
@@ -475,6 +614,96 @@ function formatCoords(...values) {
  ******************************************************************************/
 
 function mimeFromFilename(filename) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  // Replace this comment with your code...
+  // NOTE: Use a switch statement in your solution.
+  let mime = '';
+
+  extension = filename.replace(/\\|\|/g, '.').split('.').pop();
+
+  switch (extension) {
+    case 'html':
+      mime = 'text/html';
+      break;
+    case 'htm':
+      mime = 'text/html';
+      break;
+    case 'css':
+      mime = 'text/css';
+      break;
+    case 'js':
+      mime = 'text/javascript';
+      break;
+    case 'jpg':
+      mime = 'image/jpeg';
+      break;
+    case 'jpeg':
+      mime = 'image/jpeg';
+      break;
+    case 'gif':
+      mime = 'image/gif';
+      break;
+    case 'bmp':
+      mime = 'image/bmp';
+      break;
+    case 'ico':
+      mime = 'image/x-icon';
+      break;
+    case 'cur':
+      mime = 'image/x-icon';
+      break;
+    case 'png':
+      mime = 'image/png';
+      break;
+    case 'svg':
+      mime = 'image/svg+xml';
+      break;
+    case 'webp':
+      mime = 'image/webp';
+      break;
+    case 'mp3':
+      mime = 'audio/mp3';
+      break;
+    case 'wav':
+      mime = 'audio/wav';
+      break;
+    case 'mp4':
+      mime = 'video/mp4';
+      break;
+    case 'webm':
+      mime = 'video/webm';
+      break;
+    case 'json':
+      mime = 'application/json';
+      break;
+    case 'mpeg':
+      mime = 'video/mpeg';
+      break;
+    case 'csv':
+      mime = 'text/csv';
+      break;
+    case 'ttf':
+      mime = 'font/ttf';
+      break;
+    case 'woff':
+      mime = 'font/woff';
+      break;
+    case 'zip':
+      mime = 'application/zip';
+      break;
+    case 'avi':
+      mime = 'video/x-msvideo';
+      break;
+    default:
+      mime = 'application/octet-stream';
+      break;
+  }
+
+  return mime;
+=======
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
     // Replace this comment with your code...
     // NOTE: Use a switch statement in your solution.
     let mime = '';
@@ -560,6 +789,10 @@ function mimeFromFilename(filename) {
     }
 
     return mime;
+<<<<<<< HEAD
+=======
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
 }
 
 /*******************************************************************************
@@ -612,6 +845,50 @@ function mimeFromFilename(filename) {
  ******************************************************************************/
 
 function generateLicenseLink(licenseCode, targetBlank) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  // Replace this comment with your code...
+  let prefix = '<a href="https://creativecommons.org/licenses/';
+  let suffix = '</a>';
+  let index = '',
+    target = '';
+  targetBlank ? (target = ' target="_blank"') : 0;
+
+  if (licenseCode === null || !licenseCode || !licenseCode.includes('CC-')) {
+    licenseCode = '';
+    prefix = '<a href="https://choosealicense.com/no-permission/';
+    index = 'All Rights Reserved';
+  } else {
+    licenseCode = licenseCode.replace('CC-', '').toLowerCase();
+    switch (licenseCode) {
+      case 'by':
+        index = 'Creative Commons Attribution License';
+        break;
+      case 'by-nc':
+        index = 'Creative Commons Attribution-NonCommercial License';
+        break;
+      case 'by-sa':
+        index = 'Creative Commons Attribution-ShareAlike License';
+        break;
+      case 'by-nd':
+        index = 'Creative Commons Attribution-NoDerivs License';
+        break;
+      case 'by-nc-sa':
+        index = 'Creative Commons Attribution-NonCommercial-ShareAlike License';
+        break;
+      case 'by-nc-nd':
+        index = 'Creative Commons Attribution-NonCommercial-NoDerivs License';
+        break;
+      default:
+        break;
+    }
+    licenseCode += '/4.0/';
+  }
+
+  return `${prefix}${licenseCode}"${target}>${index}${suffix}`;
+=======
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
     // Replace this comment with your code...
     let prefix = '<a href="https://creativecommons.org/licenses/';
     let suffix = '</a>';
@@ -651,6 +928,10 @@ function generateLicenseLink(licenseCode, targetBlank) {
     }
 
     return `${prefix}${licenseCode}"${target}>${index}${suffix}`;
+<<<<<<< HEAD
+=======
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
 }
 
 /*******************************************************************************
@@ -678,6 +959,31 @@ function generateLicenseLink(licenseCode, targetBlank) {
  ******************************************************************************/
 
 function pureBool(value) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  // Replace this comment with your code...
+  let result = false;
+  let type = typeof value;
+  const trueVal = ['y', 'yes', 'oui', 'true', 't', 'vrai', 'v'];
+
+  switch (type) {
+    case 'boolean':
+      value ? (result = true) : 0;
+      break;
+    case 'string':
+      value = value.toLowerCase();
+      trueVal.indexOf(value) > -1 || value === 'o' ? (result = true) : 0;
+      break;
+    case 'number':
+      value > 0 ? (result = true) : 0;
+      break;
+    default:
+      throw 'invalid value';
+  }
+  return result;
+=======
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
     // Replace this comment with your code...
     let result = false;
     let type = typeof value;
@@ -698,6 +1004,10 @@ function pureBool(value) {
             throw 'invalid value';
     }
     return result;
+<<<<<<< HEAD
+=======
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
 }
 
 /*******************************************************************************
@@ -715,9 +1025,65 @@ function pureBool(value) {
  ******************************************************************************/
 
 function every(...values) {
+<<<<<<< HEAD
     // Replace this comment with your code...
     let result = true;
     let count = 0;
+=======
+<<<<<<< HEAD
+  // Replace this comment with your code...
+  let result = true;
+  let count = 0;
+
+  for (let i = 0; i < values.length; i++) {
+    try {
+      result = pureBool(values[i]);
+      !result ? (result = false) : 0;
+    } catch (error) {
+      result = 'error';
+    }
+  }
+
+  return result;
+}
+
+function any(...values) {
+  // Replace this comment with your code...
+  let result = true;
+  let count = 0;
+
+  for (let i = 0; i < values.length; i++) {
+    try {
+      result = pureBool(values[i]);
+      result ? count++ : 0;
+    } catch (error) {
+      result = 'error';
+    }
+  }
+  count > values.length / 2 ? (result = true) : (result = false);
+
+  return result;
+}
+
+function none(...values) {
+  // Replace this comment with your code...
+  let result = true;
+  let count = 0;
+
+  for (let i = 0; i < values.length; i++) {
+    try {
+      result = pureBool(values[i]);
+      !result ? count++ : 0;
+    } catch (error) {
+      result = 'error';
+    }
+  }
+  count === values.length ? (result = true) : (result = false);
+  return result;
+=======
+    // Replace this comment with your code...
+    let result = true;
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
 
     for (let i = 0; i < values.length; i++) {
         try {
@@ -764,6 +1130,10 @@ function none(...values) {
     }
     count === values.length ? (result = true) : (result = false);
     return result;
+<<<<<<< HEAD
+=======
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
 }
 
 /*******************************************************************************
@@ -817,12 +1187,27 @@ function none(...values) {
  ******************************************************************************/
 
 function buildUrl(query, order, count, license) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  // Replace this comment with your code...
+  let prefix = 'https://api.inaturalist.org/v2/observations?';
+  if (count < 1 || count > 50 || (order !== 'descending' && order !== 'ascending') || !license) {
+    throw 'error';
+  }
+  return `${prefix}query=${query}&count=${count}&order=${order}&license=${license}`;
+=======
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
     // Replace this comment with your code...
     let prefix = 'https://api.inaturalist.org/v2/observations?';
     if (count < 1 || count > 50 || (order !== 'descending' && order !== 'ascending') || !license) {
         throw 'error';
     }
     return `${prefix}query=${query}&count=${count}&order=${order}&license=${license}`;
+<<<<<<< HEAD
+=======
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
 }
 
 // Our unit test files need to access the functions we defined
