@@ -63,6 +63,23 @@ describe('Problem 0 - greeting() function', function() {
         expect(typeof greeting).toBe('function');
     });
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  /**
+   * Our final test for greeting() checks to make sure that if you pass in
+   * a name (i.e., a string), that it returns a new string formatted in the right
+   * way.
+   */
+  test('greeting should return the correct string output', function () {
+    let result = greeting('WEB222 Student!');
+    expect(result).toBe('Hello WEB222 Student!');
+  });
+=======
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
+>>>>>>> 5ce4ed67c7f6df00995e30f71005568a6c375e5d
     /**
      * Our final test for greeting() checks to make sure that if you pass in
      * a name (i.e., a string), that it returns a new string formatted in the right
@@ -72,6 +89,7 @@ describe('Problem 0 - greeting() function', function() {
         let result = greeting('WEB222 Student!');
         expect(result).toBe('Hello WEB222 Student!');
     });
+<<<<<<< HEAD
 
     /**
      * Our final test for greeting() checks to make sure that if you pass in
@@ -84,6 +102,9 @@ describe('Problem 0 - greeting() function', function() {
         expect(result).toBe('Hello WEB222 Student!');
     });
 
+=======
+<<<<<<< HEAD
+>>>>>>> 5ce4ed67c7f6df00995e30f71005568a6c375e5d
     /**
      * Our final test for greeting() checks to make sure that if you pass in
      * a name (i.e., a string), that it returns a new string formatted in the right
@@ -94,6 +115,12 @@ describe('Problem 0 - greeting() function', function() {
         let result = greeting('WEB222 Student!');
         expect(result).toBe('Hello WEB222 Student!');
     });
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c1e67c4fb5497d559bbe4d4a125b002e71751b39
+>>>>>>> 98c519245ee685fa970e1164f3c9b9a0c56f178d
+>>>>>>> 5ce4ed67c7f6df00995e30f71005568a6c375e5d
 
     /**
      * OK, now you're ready to go back to src/solutions.js and continue solving
