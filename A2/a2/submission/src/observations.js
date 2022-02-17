@@ -213,7 +213,7 @@ function observationsByGeoPrivacy(data, geoPrivacy) {
  ******************************************************************************/
 function transformObservation(original) {
   // TODO
-  var resultArr = [];
+  var resultArr = {};
   var photoArr = [];
   var coordArr = [];
   var photoNumber = 0;
@@ -240,7 +240,7 @@ function transformObservation(original) {
   // the user's login_exact name with @ prefix added
   resultArr.user = '@' + original.user.login_exact;
 
-  return Object.assign({}, resultArr);
+  return resultArr;
 }
 
 /*******************************************************************************
@@ -536,9 +536,9 @@ function getTaxonPhotos(data) {
  ******************************************************************************/
 function getUserStats(data) {
   // TODO
-  var resultArr = [];
-  var totalArr = [];
-  var averageArr = [];
+  var resultArr = {};
+  var totalArr = {};
+  var averageArr = {};
   var total_ob = 0,
     total_jour = 0,
     total_spe = 0,
@@ -560,12 +560,12 @@ function getUserStats(data) {
   averageArr.journals = total_jour / count;
   averageArr.species = total_spe / count;
   //add total&average array to resultArr
-  resultArr.averages = Object.assign({}, averageArr);
+  resultArr.averages = averageArr;
   // the total number of users in this sample
   resultArr.count = count;
-  resultArr.totals = Object.assign({}, totalArr);
+  resultArr.totals = totalArr;
 
-  return Object.assign({}, resultArr);
+  return resultArr;
 }
 
 /**

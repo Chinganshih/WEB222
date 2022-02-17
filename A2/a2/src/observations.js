@@ -72,8 +72,8 @@ const { results } = require('./data');
  * See if you can get this test to pass by fixing the bug in the code below.
  ******************************************************************************/
 function getTotalResults(data) {
-    // TODO: fix this code so it gets and returns the `total_results` property from observation data
-    return data.total_results;
+  // TODO: fix this code so it gets and returns the `total_results` property from observation data
+  return data.total_results;
 }
 
 /*******************************************************************************
@@ -96,24 +96,24 @@ function getTotalResults(data) {
  * Your function shouldn't return anything, just call console.log()
  ******************************************************************************/
 function observationSummary(data) {
-    var result = '';
-    // TODO
-    for (let i = 0; i < results.length; i++) {
-        if (
-            data.results[i].id &&
-            data.results[i].species_guess &&
-            data.results[i].observed_on_details.date
-        ) {
-            result =
-                '#' +
-                data.results[i].id +
-                ' (' +
-                data.results[i].observed_on_details.date +
-                ') ' +
-                data.results[i].species_guess;
-        }
-        console.log(result);
+  var result = '';
+  // TODO
+  for (let i = 0; i < results.length; i++) {
+    if (
+      data.results[i].id &&
+      data.results[i].species_guess &&
+      data.results[i].observed_on_details.date
+    ) {
+      result =
+        '#' +
+        data.results[i].id +
+        ' (' +
+        data.results[i].observed_on_details.date +
+        ') ' +
+        data.results[i].species_guess;
     }
+    console.log(result);
+  }
 }
 /*******************************************************************************
  * Problem 01 Part 2: use forEach() to iterate over Arrays
@@ -124,15 +124,15 @@ function observationSummary(data) {
  * See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
  ******************************************************************************/
 function observationSummary2(data) {
-    // TODO
-    var result = '';
-    data.results.forEach((element) => {
-        if (element.id && element.observed_on_details.date && element.species_guess) {
-            result =
-                '#' + element.id + ' (' + element.observed_on_details.date + ') ' + element.species_guess;
-            console.log(result);
-        } else console.log('no found');
-    });
+  // TODO
+  var result = '';
+  data.results.forEach((element) => {
+    if (element.id && element.observed_on_details.date && element.species_guess) {
+      result =
+        '#' + element.id + ' (' + element.observed_on_details.date + ') ' + element.species_guess;
+      console.log(result);
+    } else console.log('no found');
+  });
 }
 
 /*******************************************************************************
@@ -175,19 +175,19 @@ function observationSummary2(data) {
  * Your function should return the newly created Array.
  ******************************************************************************/
 function observationsByGeoPrivacy(data, geoPrivacy) {
-    // TODO
-    var resultArr = [];
-    const valid = ['open', 'OPEN', 'obscured', 'OBSCURED', 'private', 'PRIVATE', null];
+  // TODO
+  var resultArr = [];
+  const valid = ['open', 'OPEN', 'obscured', 'OBSCURED', 'private', 'PRIVATE', null];
 
-    if (valid.indexOf(geoPrivacy) < 0) {
-        throw 'error';
-    } else {
-        for (const element of data.results) {
-            if (geoPrivacy !== null) geoPrivacy = geoPrivacy.toLowerCase();
-            if (element.geoprivacy === geoPrivacy) resultArr.push(element);
-        }
+  if (valid.indexOf(geoPrivacy) < 0) {
+    throw 'error';
+  } else {
+    for (const element of data.results) {
+      if (geoPrivacy !== null) geoPrivacy = geoPrivacy.toLowerCase();
+      if (element.geoprivacy === geoPrivacy) resultArr.push(element);
     }
-    return resultArr;
+  }
+  return resultArr;
 }
 
 /*******************************************************************************
@@ -212,35 +212,35 @@ function observationsByGeoPrivacy(data, geoPrivacy) {
  * }
  ******************************************************************************/
 function transformObservation(original) {
-    // TODO
-    var resultArr = [];
-    var photoArr = [];
-    var coordArr = [];
-    var photoNumber = 0;
+  // TODO
+  var resultArr = {};
+  var photoArr = [];
+  var coordArr = [];
+  var photoNumber = 0;
 
-    // location converted to Array of Numbers, longitude first
-    coordArr = original.location.split(',').reverse().map(Number);
-    resultArr.coords = coordArr;
-    //copy the id over without modification
-    resultArr.id = original.id;
-    // species_guess renamed
-    resultArr.speciesGuess = original.species_guess;
-    // true if quality_grade is 'research', false otherwise
-    original.quality_grade === 'research' ?
-        (resultArr.isResearchQuality = true) :
-        (resultArr.isResearchQuality = false);
-    // modify photos to be Array of URLs
-    for (const element of original.photos) {
-        photoArr.push(element.url);
-        photoNumber++;
-    }
-    resultArr.photos = photoArr;
-    // the number of photo URLs included in photos
-    resultArr.photosCount = photoNumber;
-    // the user's login_exact name with @ prefix added
-    resultArr.user = '@' + original.user.login_exact;
+  // location converted to Array of Numbers, longitude first
+  coordArr = original.location.split(',').reverse().map(Number);
+  resultArr.coords = coordArr;
+  //copy the id over without modification
+  resultArr.id = original.id;
+  // species_guess renamed
+  resultArr.speciesGuess = original.species_guess;
+  // true if quality_grade is 'research', false otherwise
+  original.quality_grade === 'research'
+    ? (resultArr.isResearchQuality = true)
+    : (resultArr.isResearchQuality = false);
+  // modify photos to be Array of URLs
+  for (const element of original.photos) {
+    photoArr.push(element.url);
+    photoNumber++;
+  }
+  resultArr.photos = photoArr;
+  // the number of photo URLs included in photos
+  resultArr.photosCount = photoNumber;
+  // the user's login_exact name with @ prefix added
+  resultArr.user = '@' + original.user.login_exact;
 
-    return Object.assign({}, resultArr);
+  return resultArr;
 }
 
 /*******************************************************************************
@@ -259,13 +259,13 @@ function transformObservation(original) {
  *  - return the new Array containing all the transformed Objects
  ******************************************************************************/
 function transformObservations(data) {
-    // TODO
-    var resultArr = [];
-    data.results.forEach((element) => {
-        resultArr.push(transformObservation(element));
-    });
+  // TODO
+  var resultArr = [];
+  data.results.forEach((element) => {
+    resultArr.push(transformObservation(element));
+  });
 
-    return resultArr;
+  return resultArr;
 }
 
 /*******************************************************************************
@@ -282,11 +282,11 @@ function transformObservations(data) {
  *  - return the Array created by the .map() method
  ******************************************************************************/
 function transformObservations2(data) {
-    // TODO
-    var resultArr = [];
-    data.results.map((element) => resultArr.push(transformObservation(element)));
+  // TODO
+  var resultArr = [];
+  data.results.map((element) => resultArr.push(transformObservation(element)));
 
-    return resultArr;
+  return resultArr;
 }
 
 /*******************************************************************************
@@ -320,25 +320,25 @@ function transformObservations2(data) {
  *  - use the .find() method to locate items by id, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
  ******************************************************************************/
 function getObservationsById(data, ...ids) {
-    // TODO
-    var resultArr = [];
-    var isUnknown = true;
+  // TODO
+  var resultArr = [];
+  var isUnknown = true;
 
-    data.results.forEach((element) => {
-        // use the .find() method to locate items by id
-        if (ids.find((id) => element.id === id)) {
-            resultArr.push(element);
-            isUnknown = false;
-        }
-    });
-    if (isUnknown && ids.length === 1) {
-        // if a single unknown id value is passed, return null
-        resultArr = null;
-    } else if (!isUnknown && ids.length === 1) {
-        // if a single, known id is passed, the full Object should be returned
-        resultArr = resultArr[0];
+  data.results.forEach((element) => {
+    // use the .find() method to locate items by id
+    if (ids.find((id) => element.id === id)) {
+      resultArr.push(element);
+      isUnknown = false;
     }
-    return resultArr;
+  });
+  if (isUnknown && ids.length === 1) {
+    // if a single unknown id value is passed, return null
+    resultArr = null;
+  } else if (!isUnknown && ids.length === 1) {
+    // if a single, known id is passed, the full Object should be returned
+    resultArr = resultArr[0];
+  }
+  return resultArr;
 }
 
 /*******************************************************************************
@@ -374,42 +374,42 @@ function getObservationsById(data, ...ids) {
  ******************************************************************************/
 
 function getObservationsByPositionalAccuracy(data, options = {}) {
-    // TODO
-    var resultArr = [];
-    var max = 999999,
-        min = 0;
-    var isEmpty = false,
-        hasEqual = false;
+  // TODO
+  var resultArr = [];
+  var max = 999999,
+    min = 0;
+  var isEmpty = false,
+    hasEqual = false;
 
-    data.results.filter((element) => {
-        Object.keys(options).length === 0 ? (isEmpty = true) : 0;
-        for (const option in options) {
-            if (!hasEqual) {
-                switch (option) {
-                    case 'eq':
-                        max = options.eq;
-                        min = options.eq;
-                        hasEqual = true;
-                        break;
-                    case 'lt':
-                        max = options.lt;
-                        break;
-                    case 'gt':
-                        min = options.gt;
-                        break;
-                }
-            }
+  data.results.filter((element) => {
+    Object.keys(options).length === 0 ? (isEmpty = true) : 0;
+    for (const option in options) {
+      if (!hasEqual) {
+        switch (option) {
+          case 'eq':
+            max = options.eq;
+            min = options.eq;
+            hasEqual = true;
+            break;
+          case 'lt':
+            max = options.lt;
+            break;
+          case 'gt':
+            min = options.gt;
+            break;
         }
-        if (isEmpty) {
-            resultArr.push(element);
-        } else {
-            element.positional_accuracy >= min && element.positional_accuracy <= max ?
-                resultArr.push(element) :
-                0;
-        }
-    });
+      }
+    }
+    if (isEmpty) {
+      resultArr.push(element);
+    } else {
+      element.positional_accuracy >= min && element.positional_accuracy <= max
+        ? resultArr.push(element)
+        : 0;
+    }
+  });
 
-    return resultArr;
+  return resultArr;
 }
 
 /*******************************************************************************
@@ -456,25 +456,25 @@ function getObservationsByPositionalAccuracy(data, options = {}) {
  * Your function should return the new Array of photo size Objects
  ******************************************************************************/
 function getTaxonPhotos(data) {
-    // TODO
-    var resultArr = [];
-    var photosArr = [];
-    var url = 'https://static.inaturalist.org/photos/';
+  // TODO
+  var resultArr = [];
+  var photosArr = [];
+  var url = 'https://static.inaturalist.org/photos/';
 
-    data.results.forEach((element) => {
-        if (element.taxon !== undefined && element.taxon.default_photo !== null) {
-            var id = element.taxon.default_photo.id;
-            photosArr.original = `${url}${id}/original.jpg?1384377507`;
-            photosArr.square = `${url}${id}/square.jpg?1384377507`;
-            photosArr.small = `${url}${id}/small.jpg?1384377507`;
-            photosArr.medium = `${url}${id}/medium.jpg?1384377507`;
-            photosArr.large = `${url}${id}/large.jpg?1384377507`;
+  data.results.forEach((element) => {
+    if (element.taxon !== undefined && element.taxon.default_photo !== null) {
+      var id = element.taxon.default_photo.id;
+      photosArr.original = `${url}${id}/original.jpg?1384377507`;
+      photosArr.square = `${url}${id}/square.jpg?1384377507`;
+      photosArr.small = `${url}${id}/small.jpg?1384377507`;
+      photosArr.medium = `${url}${id}/medium.jpg?1384377507`;
+      photosArr.large = `${url}${id}/large.jpg?1384377507`;
 
-            resultArr.push(photosArr);
-        }
-    });
+      resultArr.push(photosArr);
+    }
+  });
 
-    return resultArr;
+  return resultArr;
 }
 
 /*******************************************************************************
@@ -535,37 +535,37 @@ function getTaxonPhotos(data) {
  * }
  ******************************************************************************/
 function getUserStats(data) {
-    // TODO
-    var resultArr = [];
-    var totalArr = [];
-    var averageArr = [];
-    var total_ob = 0,
-        total_jour = 0,
-        total_spe = 0,
-        count = 0;
+  // TODO
+  var resultArr = {};
+  var totalArr = {};
+  var averageArr = {};
+  var total_ob = 0,
+    total_jour = 0,
+    total_spe = 0,
+    count = 0;
 
-    data.results.forEach((element) => {
-        count++;
-        total_ob += element.user.observations_count;
-        total_jour += element.user.journal_posts_count;
-        total_spe += element.user.species_count;
-    });
+  data.results.forEach((element) => {
+    count++;
+    total_ob += element.user.observations_count;
+    total_jour += element.user.journal_posts_count;
+    total_spe += element.user.species_count;
+  });
 
-    //total Array
-    totalArr.observations = total_ob;
-    totalArr.journals = total_jour;
-    totalArr.species = total_spe;
-    //average Array
-    averageArr.observations = total_ob / count;
-    averageArr.journals = total_jour / count;
-    averageArr.species = total_spe / count;
-    //add total&average array to resultArr
-    resultArr.averages = Object.assign({}, averageArr);
-    // the total number of users in this sample
-    resultArr.count = count;
-    resultArr.totals = Object.assign({}, totalArr);
+  //total Array
+  totalArr.observations = total_ob;
+  totalArr.journals = total_jour;
+  totalArr.species = total_spe;
+  //average Array
+  averageArr.observations = total_ob / count;
+  averageArr.journals = total_jour / count;
+  averageArr.species = total_spe / count;
+  //add total&average array to resultArr
+  resultArr.averages = averageArr;
+  // the total number of users in this sample
+  resultArr.count = count;
+  resultArr.totals = totalArr;
 
-    return Object.assign({}, resultArr);
+  return resultArr;
 }
 
 /**
@@ -584,16 +584,16 @@ function getUserStats(data) {
  * return the Array of time zones.
  */
 function extractTimeZones(data) {
-    // TODO
-    var timezoneArr = [];
+  // TODO
+  var timezoneArr = [];
 
-    data.results.forEach((element) => {
-        if (!timezoneArr.find((time) => time === element.created_time_zone)) {
-            timezoneArr.push(element.created_time_zone);
-        }
-    });
+  data.results.forEach((element) => {
+    if (!timezoneArr.find((time) => time === element.created_time_zone)) {
+      timezoneArr.push(element.created_time_zone);
+    }
+  });
 
-    return timezoneArr;
+  return timezoneArr;
 }
 
 /**
@@ -611,14 +611,14 @@ function extractTimeZones(data) {
  */
 
 function extractTimeZones2(data) {
-    // TODO
-    const timeZoneSet = new Set();
+  // TODO
+  const timeZoneSet = new Set();
 
-    data.results.forEach((element) => {
-        if (!timeZoneSet.has(element.created_time_zone)) timeZoneSet.add(element.created_time_zone);
-    });
+  data.results.forEach((element) => {
+    if (!timeZoneSet.has(element.created_time_zone)) timeZoneSet.add(element.created_time_zone);
+  });
 
-    return Array.from(timeZoneSet);
+  return Array.from(timeZoneSet);
 }
 
 // Our unit test files need to access the functions we defined
