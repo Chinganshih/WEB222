@@ -1,41 +1,55 @@
+h1 {
+    color: rgb(255, 153, 0);
+    text-align: left;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px 3px rgb(63, 216, 165);
+}
+
+a:visited {
+    text-decoration: none;
+}
+
 ul {
-  list-style: none;
-  /* Remove default bullets */
+    list-style: none;
 }
 
 ul li::before {
-  content: '\2022';
-  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: red;
-  /* Change the color */
-  font-weight: bold;
-  /* If you want it to be bold */
-  display: inline-block;
-  /* Needed to add space between the bullet and the text */
-  width: 1em;
-  /* Also needed for space (tweak if needed) */
-  margin-left: -1em;
-  /* Also needed for space (tweak if needed) */
+    content: '\2022';
+    color: red;
+    font-weight: bold;
+    display: inline-block;
+    width: 2em;
+    margin-left: -1em;
 }
 
 nav {
-  border-bottom: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .crumbs ol {
-  list-style-type: none;
-  padding-left: 0;
+    list-style-type: none;
+    padding-left: 0;
 }
 
 .crumb {
-  display: inline-block;
+    display: inline-block;
 }
 
 .crumb a::after {
-  display: inline-block;
-  color: #000;
-  content: '>';
-  font-size: 80%;
-  font-weight: bold;
-  padding: 0 3px;
+    display: inline-block;
+    color: #000;
+    content: '>';
+    font-size: 80%;
+    font-weight: bold;
+    padding: 0 3px;
+}
+
+.video-played {
+    background: powderblue;
+}
+
+.video-new {
+    border: dashed rgb(91, 201, 81);
 }
