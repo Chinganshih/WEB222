@@ -17,8 +17,8 @@ body {
   line-height: 1.618;
   max-width: 38em;
   margin: auto;
-  color: #4a4a4a;
-  background-color: #f9f9f9;
+  color: #c1d2db;
+  background-color: #92b6c7;
   padding: 13px;
 }
 
@@ -84,11 +84,12 @@ h6 {
 
 h1 {
   font-size: 2.35em;
-  color: rgba(0, 119, 255, 0.603);
+  color: rgba(14, 62, 117, 0.603);
 }
 
 h2 {
   font-size: 2em;
+  color: #f1f1f1;
 }
 
 h3 {
@@ -110,6 +111,7 @@ h6 {
 p {
   margin-top: 0px;
   margin-bottom: 2.5rem;
+  color: #e7ebec;
 }
 
 small,
@@ -208,7 +210,7 @@ table {
   padding: 0.3em;
   border-bottom: 1px solid #f1f1f1;
   background-color: rgb(69, 146, 218);
-  color: rgb(255, 255, 255);
+  color: rgb(241, 241, 241);
   font-size: 15px;
   font-weight: bold;
 }
