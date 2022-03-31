@@ -1,55 +1,73 @@
+@import url(https://fonts.googleapis.com/css?family=Inspiration);
+@font-face {
+    font-family: 'Inspiration';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/inspiration/v1/x3dkckPPZa6L4wIg5cZOEsoOlyvVBA.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
 h1 {
-  color: rgb(255, 153, 0);
-  text-align: left;
-  text-decoration: underline;
-  text-transform: uppercase;
-  font-family: Arial, Helvetica, sans-serif;
-  text-shadow: 2px 2px 3px rgb(63, 216, 165);
+    color: rgb(255, 153, 0);
+    text-align: left;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-family: 'Inspiration';
+    text-shadow: 2px 2px 3px rgb(63, 216, 165);
 }
 
 a:visited {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 ul li::before {
-  content: '\2022';
-  color: red;
-  font-weight: bold;
-  display: inline-block;
-  width: 2em;
-  margin-left: -1em;
+    content: '\2022';
+    color: red;
+    font-weight: bold;
+    display: inline-block;
+    width: 2em;
+    margin-left: -1em;
 }
 
 nav {
-  border-bottom: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .crumbs ol {
-  list-style-type: none;
-  padding-left: 0;
+    list-style-type: none;
+    padding-left: 0;
 }
 
 .crumb {
-  display: inline-block;
+    display: inline-block;
 }
 
 .crumb a::after {
-  display: inline-block;
-  color: #000;
-  content: '>';
-  font-size: 80%;
-  font-weight: bold;
-  padding: 0 3px;
+    display: inline-block;
+    color: #000;
+    content: '>';
+    font-size: 80%;
+    font-weight: bold;
+    padding: 0 3px;
 }
 
 .video-played {
-  background: powderblue;
+    background: powderblue;
 }
 
 .video-new {
-  border: dashed rgb(91, 201, 81);
+    border: dashed rgb(91, 201, 81);
+}
+
+h3 {
+    color: rgb(0, 0, 255);
+    text-align: left;
+    text-decoration-style: wavy;
+    text-decoration-color: red;
+    text-decoration-line: underline;
+    text-transform: uppercase;
 }

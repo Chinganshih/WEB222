@@ -1,0 +1,43 @@
+<html>
+
+<head> </head>
+
+<body>
+    <style>
+        /* Place a semi-transparent box over the entire screen at startup */
+        
+        #loading {
+            position: fixed;
+            /* position this element by specifying top, left, etc */
+            padding: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            /* make it a bit see through */
+            z-index: 500;
+            /* put this on top of other content */
+        }
+    </style>
+    <div id="loading">
+        <p>Loading...</p>
+    </div>
+    <main>
+        <!-- rest of page content here -->
+    </main>
+    <script>
+        window.onload = function() {
+            setTimeout(() => {
+                // Remove the spinner now that the page is loaded
+                var loadingDiv = document.querySelector('#loading');
+                loadingDiv.style.display = 'none';
+            }, 5000);
+        };
+
+        
+    </script>
+</body>
+
+</html>
