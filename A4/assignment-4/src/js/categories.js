@@ -9,9 +9,9 @@
  */
 
 window.categories = [
-    { id: "b", name: "Bun" },
-    { id: "c1", name: "Cake" },
-    { id: "c2", name: "Croissant" },
-    { id: "c3", name: "Cookies" },
-    { id: "d", name: "Drink" }
+  { id: "b", name: "Bun" },
+  { id: "c1", name: "Cake" },
+  { id: "c2", name: "Croissant" },
+  { id: "c3", name: "Cookies" },
+  { id: "d", name: "Drink" }
 ];
