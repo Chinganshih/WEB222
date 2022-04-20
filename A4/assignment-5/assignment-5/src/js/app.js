@@ -127,10 +127,7 @@ function createProductCard(e, index, card_index) {
     // find out image and add scr
     var cardimg = document.querySelector("#img" + index + card_index);
     cardimg.src =
-        "/assignment-5/src/image/" +
-        e.categories[0] +
-        card_index +
-        ".jpg?auto=format&fit=crop&w=750&q=80";
+        "/src/image/" + e.categories[0] + card_index + ".jpg?auto=format&fit=crop&w=750&q=80";
     cardimg.title = e.description;
 
     //add style for div
