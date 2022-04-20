@@ -51,7 +51,25 @@ window.products = [
 
   {
     id: "b5",
+    title: "Cheese dog bun",
+    description: "Meat Lover Hot Dog Bun",
+    price: 310,
+    discontinued: false,
+    categories: ["b"]
+  },
+
+  {
+    id: "b6",
     title: "Hot Dog Bun",
+    description: "Meat Lover Hot Dog Bun",
+    price: 310,
+    discontinued: false,
+    categories: ["b"]
+  },
+
+  {
+    id: "b7",
+    title: "BBQ Bun",
     description: "Meat Lover Hot Dog Bun",
     price: 310,
     discontinued: false,
@@ -90,6 +108,15 @@ window.products = [
     title: "Banana pound Cake",
     description: "delicate texture",
     price: 650,
+    discontinued: false,
+    categories: ["c1"]
+  },
+
+  {
+    id: "c15",
+    title: "Strawberry Cake",
+    description: "Japanese strawberry with vanilla cake",
+    price: 800,
     discontinued: false,
     categories: ["c1"]
   },
@@ -163,6 +190,15 @@ window.products = [
     description: "Swiss Vanilla flavor",
     price: 250,
     discontinued: true,
+    categories: ["c3"]
+  },
+
+  {
+    id: "c35",
+    title: "Red Velvet Cookies",
+    description: "Red Velvet flavor",
+    price: 350,
+    discontinued: false,
     categories: ["c3"]
   },
 

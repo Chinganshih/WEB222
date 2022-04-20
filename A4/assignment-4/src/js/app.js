@@ -66,12 +66,26 @@ function defaultCategory() {
   document.querySelector("#selected-category").innerText = topbtn[0].innerText;
 
   //default first Product
-  var firstID = categories[0].id;
   let index = 1;
+  let card_index = 1;
+  let numberOfprod = 0;
+  var selectCat = categories.filter((element) => element.name === topbtn[0].innerText);
   products.forEach((e) => {
-    if (e.categories[0] === firstID && !isDiscontinued(e.discontinued)) {
+    if (e.categories[0] === selectCat[0].id && !isDiscontinued(e.discontinued)) {
+      numberOfprod++;
+    }
+  });
+  //3.5 create tr for card table
+  for (let i = 0; i < Math.ceil(numberOfprod / 3); i++) {
+    createNode("#card-table", "tr", "card_tr" + (i + 1));
+  }
+  products.forEach((e) => {
+    if (e.categories[0] === selectCat[0].id && !isDiscontinued(e.discontinued)) {
       createtableIndex(e, index);
+      createProductCard(e, Math.ceil(card_index / 3), card_index);
+
       index++;
+      card_index++;
     }
   });
 }
@@ -102,6 +116,60 @@ function createtableIndex(e, index) {
   }
 }
 
+function createProductCard(e, index, card_index) {
+  createNode("#card_tr" + index, "th", "card_th" + index + card_index);
+  createNode("#card_th" + index + card_index, "div", "card_div" + index + card_index);
+  createNode("#card_div" + index + card_index, "img", "img" + index + card_index);
+  createNode("#card_div" + index + card_index, "div", "container" + index + card_index);
+  createNode("#container" + index + card_index, "h3", "title" + index + card_index);
+  createNode("#container" + index + card_index, "p", "desc" + index + card_index);
+  createNode("#container" + index + card_index, "span", "price" + index + card_index);
+  // find out image and add scr
+  var cardimg = document.querySelector("#img" + index + card_index);
+  cardimg.src =
+    "/assignment-4/src/image/" +
+    e.categories[0] +
+    card_index +
+    ".jpg?auto=format&fit=crop&w=750&q=80";
+  cardimg.title = e.description;
+
+  //add style for div
+  var div = document.querySelector("#card_div" + index + card_index);
+  div.setAttribute("style", "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)");
+  div.style.transition = 0.3;
+  div.style.width = "100%";
+  div.style.background = "lightgrey";
+  div.style.borderRadius = "5px";
+  div.style.boxShadow = "0 8px 16px 0 rgba(0, 0, 0, 0.2)";
+  div.onmouseover = function () {
+    this.style.boxShadow = "0 8px 16px 0 rgba(0, 0, 0, 0.2)";
+  };
+
+  //add style for container
+  var container = document.querySelector("#container" + index + card_index);
+  container.style.padding = "5px";
+
+  //add style for desc
+  var desc = document.querySelector("#desc" + index + card_index);
+  desc.innerText = e.description;
+  desc.setAttribute("style", "color: rgb(97, 33, 33)");
+
+  // add title and price for each card
+  var title = document.querySelector("#title" + index + card_index);
+  title.innerText = e.title;
+  title.setAttribute("style", "color: rgb(97, 33, 33)");
+
+  var price = document.querySelector("#price" + index + card_index);
+  price.innerHTML = dollarCent(e.price);
+  price.setAttribute("style", "color : grey");
+  price.style.fontWeight = "bold";
+
+  //modify img
+  var img = document.querySelector("#img" + index + card_index);
+  img.style.width = "400px";
+  img.style.height = "400px";
+}
+
 // 1.	Create an event handler to run when the page is loaded.
 window.onload = function () {
   //1. Create all of the buttons for your store’s Categories
@@ -114,18 +182,34 @@ window.onload = function () {
   topbtn.forEach(function (e) {
     e.addEventListener("click", function () {
       let index = 1;
+      let card_index = 1;
+      let numberOfprod = 0;
 
       //3.1 Update the text of the Selected Category Title above your table with the category’s name
       document.querySelector("#selected-category").innerText = e.innerText;
       //3.2 Clear the current <tr>…</tr> rows from the <tbody>…</tbody>. HINT: innerHTML = “”
       document.querySelector("#category-products").innerHTML = "";
+      document.querySelector("#card-table").innerHTML = "";
       //3.3 Filter your products Array (i.e., use Array.prototype.filter()) to get:
       var selectCat = categories.filter((element) => element.name === e.innerText);
+      //3.4 count how many product in same category
+      products.forEach((e) => {
+        if (e.categories[0] === selectCat[0].id && !isDiscontinued(e.discontinued)) {
+          numberOfprod++;
+        }
+      });
+      //3.5 create tr for card table
+      for (let i = 0; i < Math.ceil(numberOfprod / 3); i++) {
+        createNode("#card-table", "tr", "card_tr" + (i + 1));
+      }
       //3.4 Loop (use Array.prototype.forEach()) over your filtered product list and add them to the table’s body:
       products.forEach((e) => {
         if (e.categories[0] === selectCat[0].id && !isDiscontinued(e.discontinued)) {
           createtableIndex(e, index);
+          createProductCard(e, Math.ceil(card_index / 3), card_index);
+
           index++;
+          card_index++;
         }
       });
     });
